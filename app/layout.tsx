@@ -40,8 +40,8 @@ export default async function RootLayout({
           <SidebarProvider>
             <AppSidebar />
             <main className="w-screen">
-                <Navbar />
-                {children}
+              <Navbar />
+              {children}
             </main>
           </SidebarProvider>
         </div>

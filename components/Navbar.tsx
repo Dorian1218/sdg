@@ -9,7 +9,7 @@ const Navbar = async () => {
     const user = await getUser()
     return (
         <div className="flex justify-between">
-            <p className="text-2xl">App</p>
+            <p className="text-2xl text-blue-600">App</p>
             {user ? (
                 <AuthNav email={user.email as string} name={user.given_name as string} userImage={user.picture as string} />
             ) : (
