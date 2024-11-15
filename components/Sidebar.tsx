@@ -10,9 +10,9 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
-
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
 import { Input } from "./ui/input"
+import { Button } from "./ui/button"
 
 const items = [
     {
@@ -37,18 +37,20 @@ const items = [
     },
 ]
 
-export function AppSidebar() {
+export async function AppSidebar() {
     return (
         <Sidebar>
             <SidebarContent>
                 <SidebarGroup>
                     <SidebarGroupLabel>Application</SidebarGroupLabel>
                     <SidebarGroupContent>
-                        <SidebarMenu>
-                            <div className="flex items-center">
-                                <Search />
-                                <Input placeholder="Search"/>
-                            </div>
+                        <SidebarMenu className="gap-y-4">
+                            <SidebarMenuItem>
+                                <div className="flex items-center gap-2">
+                                    <Search />
+                                    <span><Input placeholder="Search" /></span>
+                                </div>
+                            </SidebarMenuItem>
                             {items.map((item) => (
                                 <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton asChild>
