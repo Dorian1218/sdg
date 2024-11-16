@@ -1,21 +1,27 @@
+"use client"
+
 import Image from "next/image";
 import AuthNav from "@/components/AuthNav";
 import ItemCard from "@/components/ItemCard";
-export default async function Home() {
+import { useEffect, useState } from "react";
+import { Post } from "@prisma/client";
+export default function Home() {
+  const [cards, setCards] = useState([])
+  useEffect(() => {
+    fetch("http://localhost:3000/api/item/get").then((res) => {
+      return res.json()
+    }).then((data) => {
+      setCards(data)
+    })
+    console.log(cards)
+  }, [])
   return (
     <div>
       <p className="text-2xl bold mb-2">Browse All</p>
       <div className="flex flex-wrap gap-5">
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
+        {cards.map((card: Post) => (
+          <ItemCard key={card.id} id = {card.id} title={card.title} city={card.city} state={card.state} picture={card.picture} desc={card.desc} price={card.price}/>
+        ))}
       </div>
     </div>
   );

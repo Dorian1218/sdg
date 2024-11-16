@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import {
     Card,
@@ -8,19 +10,31 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
+interface Post {
+    id: string
+    title: string
+    city: string
+    state: string
+    picture: string
+    desc: string
+    price: string
+}
 
-const ItemCard = () => {
+const ItemCard = ({id, title, city, state, picture}: Post) => {
+    
+const router = useRouter()
     return (
-        <Card className="w-[300px] h-[300px] border-2 flex flex-col justify-between">
+        <Card className="w-[300px] h-[300px] border-2 flex flex-col justify-between hover: cursor-pointer" onClick={() => router.push(`/product/${id}`)}>
             <CardHeader className='p-2'>
-                <CardTitle>Windows 10 Laptop</CardTitle>
+                <CardTitle>{title}</CardTitle>
             </CardHeader>
             <CardContent className='border flex justify-center relative h-full w-full items-center'>
                 <Image src="/laptop.jpg" alt="" fill={true} className='p-3'/>
             </CardContent>
             <CardFooter className='p-2'>
-                <CardDescription>City, ST</CardDescription>
+                <CardDescription>{city}, {state}</CardDescription>
             </CardFooter>
         </Card>
 

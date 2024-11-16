@@ -11,7 +11,7 @@ const Navbar = async () => {
         <div className="flex justify-between">
             <p className="text-2xl text-blue-600">App</p>
             {user ? (
-                <AuthNav email={user.email as string} name={user.given_name as string} userImage={user.picture as string} />
+                <AuthNav email={user.email as string} name={user.given_name as string} userImage={user.picture as string} last={user.family_name as string} />
             ) : (
                 <div className="flex gap-4 items-center">
                     <LoginLink><Button className="bg-blue-600 hover:bg-blue-800">Sign in</Button></LoginLink>

@@ -7,10 +7,11 @@ import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 interface Props {
     email: string
     name: string
+    last: string
     userImage: string
 }
 
-const AuthNav = ({ email, name, userImage }: Props) => {
+const AuthNav = ({ email, name, last, userImage }: Props) => {
     return (
         <DropdownMenu modal={false}>
             <DropdownMenuTrigger asChild>
@@ -24,7 +25,7 @@ const AuthNav = ({ email, name, userImage }: Props) => {
             <DropdownMenuContent className="w-56" align='end' forceMount>
                 <DropdownMenuLabel>
                     <div className='flex flex-col space-y-1'>
-                        <p>{name}</p>
+                        <p>{name} {last}</p>
                         <p className='text-sm text-gray-500'>{email}</p>
                     </div>
                 </DropdownMenuLabel>
