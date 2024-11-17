@@ -11,18 +11,10 @@ import {
 } from "@/components/ui/card"
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { Post } from '@prisma/client'
 
-interface Post {
-    id: string
-    title: string
-    city: string
-    state: string
-    picture: string
-    desc: string
-    price: string
-}
 
-const ItemCard = ({id, title, city, state, picture}: Post) => {
+const ItemCard = ({id, title, city, state, pictures, desc, price, uploadId}: Post) => {
     
 const router = useRouter()
     return (

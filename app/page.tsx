@@ -20,7 +20,7 @@ export default function Home() {
       <p className="text-2xl bold mb-2">Browse All</p>
       <div className="flex flex-wrap gap-5">
         {cards.map((card: Post) => (
-          <ItemCard key={card.id} id = {card.id} title={card.title} city={card.city} state={card.state} picture={card.picture} desc={card.desc} price={card.price}/>
+          <ItemCard key={card.id} id = {card.id} title={card.title} city={card.city} state={card.state} pictures={card.pictures} desc={card.desc} price={card.price} uploadId={card.uploadId} createdAt={card.createdAt} updatedAt={card.updatedAt}/>
         ))}
       </div>
     </div>

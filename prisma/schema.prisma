@@ -15,19 +15,24 @@ datasource db {
 }
 
 model User {
-  id             String @id @unique
-  email          String @unique
+  id             String   @id @unique
+  email          String   @unique
   firstName      String
   lastName       String
   profilePicture String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
 
 model Post {
-  id      String @id @unique
-  title   String
-  city    String
-  state   String
-  picture String
-  desc    String
-  price   String
+  id        Int      @id @unique @default(autoincrement())
+  title     String
+  city      String
+  state     String
+  pictures  String[]
+  desc      String
+  price     Decimal
+  uploadId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

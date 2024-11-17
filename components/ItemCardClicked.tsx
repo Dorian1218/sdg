@@ -13,7 +13,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { Post } from '@prisma/client'
 
-const ItemCardClicked = ({id, title, city, state, picture, desc, price}: Post) => {
+const ItemCardClicked = ({id, title, city, state, pictures, desc, price}: Post) => {
     
 const router = useRouter()
     return (
